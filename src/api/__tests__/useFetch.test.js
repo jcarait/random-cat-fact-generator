@@ -1,4 +1,4 @@
-import { render, screen, renderHook } from "@testing-library/react";
+import { render, screen, renderHook, cleanup } from "@testing-library/react";
 import { act } from "react-dom/test-utils";
 import { unmountComponentAtNode } from "react-dom";
 import useFetch from "../useFetch";
@@ -20,6 +20,7 @@ afterEach(() => {
   unmountComponentAtNode(container);
   container.remove();
   container = null;
+  cleanup();
 });
 
 it("returns data on success", async () => {
@@ -44,7 +45,7 @@ it("returns data on success", async () => {
     render(<TestComponent url="https://catfact.ninja/fact" />, container);
   });
 
-  expect(screen.getByTestId("loading")).toHaveTextContent("loading");
+  expect(screen.getByTestId("loading")).toHaveTextContent("Loading...");
   await act(async () => await sleep(500));
   expect(screen.getByTestId("data")).toHaveTextContent("data from api");
 });
@@ -67,23 +68,29 @@ it("returns error on fail", async () => {
     render(<TestComponent url="https://catfact.ninja/fact" />, container);
   });
 
-  expect(screen.getByTestId("loading")).toHaveTextContent("loading");
+  expect(screen.getByTestId("loading")).toHaveTextContent("Loading...");
   await act(async () => await sleep(500));
-  expect(screen.getByTestId("error")).toHaveTextContent("error");
-  screen.debug();
+  expect(screen.getByTestId("error-page")).toBeInTheDocument("error");
 });
 
 function TestComponent({ url }) {
   const { data, isLoading, error } = useFetch(url);
 
   if (isLoading) {
-    return <p data-testid="loading">loading</p>;
+    return <p data-testid="loading">Loading...</p>;
+  }
+
+  if (error) {
+    return (
+      <div>
+        <p data-testid="error-page">{error}</p>
+      </div>
+    );
   }
 
   return (
     <div>
       <p data-testid="data">{JSON.stringify(data?.data)}</p>
-      <p data-testid="error">{error ? "error" : ""}</p>
     </div>
   );
 }
