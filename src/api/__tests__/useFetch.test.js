@@ -23,7 +23,20 @@ afterEach(() => {
   cleanup();
 });
 
-it("returns data on success", async () => {
+// const mockUseFetchComponent = jest.fn();
+// jest.mock("../useFetch.js", () => (url, click) => {
+//   mockUseFetchComponent(url, click);
+//   return <mockUseFetchComponent />;
+// });
+
+// test("If ParentComponent has passed url prop, ChildComponent is called with url prop", () => {
+//   render(<TestComponent url="https://mockurl.com" />);
+//   expect(mockUseFetchComponent).toHaveBeenCalledWith(
+//     expect.stringContaining("https://mockurl.com")
+//   );
+// });
+
+it("returns data and renders data on success", async () => {
   function fetchMock(url) {
     return new Promise((resolve) =>
       setTimeout(() => {
@@ -41,8 +54,10 @@ it("returns data on success", async () => {
 
   jest.spyOn(global, "fetch").mockImplementation(fetchMock);
 
+  const testFetch = jest.fn(fetchMock("https://mockurl.com"));
+
   act(() => {
-    render(<TestComponent url="https://catfact.ninja/fact" />, container);
+    render(<TestComponent url="https://mockurl.com" />, container);
   });
 
   expect(screen.getByTestId("loading")).toHaveTextContent("Loading...");
@@ -65,7 +80,7 @@ it("returns error on fail", async () => {
   jest.spyOn(global, "fetch").mockImplementation(fetchMock);
 
   act(() => {
-    render(<TestComponent url="https://catfact.ninja/fact" />, container);
+    render(<TestComponent url="https://mockurl.com" />, container);
   });
 
   expect(screen.getByTestId("loading")).toHaveTextContent("Loading...");

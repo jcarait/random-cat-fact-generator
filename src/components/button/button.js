@@ -1,3 +1,5 @@
+import "./button.css";
+
 export default function button({ label, onClick }) {
   return (
     <div className="button" onClick={onClick}>

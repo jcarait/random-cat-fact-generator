@@ -1,33 +1,44 @@
 import { useState } from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
 import "./App.css";
-import Button from "./components/button/button";
+import PageNotFound from "./pages/PageNotFound";
+import Home from "./pages/HomePage";
 import useFetch from "./api/useFetch";
 
 function App() {
   const [isClicked, setIsClicked] = useState(true);
-
   const { data, isLoading, error } = useFetch(
     "https://catfact.ninja/fact",
     isClicked
   );
 
-  if (error) {
-    return (
-      <div>
-        <p data-testid="error-page">{error}</p>
-      </div>
-    );
-  }
+  const handleClick = () => {
+    setIsClicked(!isClicked);
+  };
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1 className="title">Random Cat Fact Generator</h1>
-        <p data-testid="loading">{isLoading && "Loading..."}</p>
-        <p data-testid="data">{!isLoading && data.fact}</p>
-        <Button label="refresh" onClick={() => setIsClicked(!isClicked)} />
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route
+          exact
+          path="/"
+          element={
+            <Home props={{ data, isLoading, error }} onClick={handleClick} />
+          }
+        ></Route>
+        <Route></Route>
+        <Route
+          exact
+          path="/404"
+          element={<PageNotFound errorMessage={error} />}
+        ></Route>
+      </Routes>
+    </Router>
   );
 }
 

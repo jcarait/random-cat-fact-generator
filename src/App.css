@@ -14,5 +14,37 @@
 }
 
 .title {
-  margin-bottom: 50px;
+  margin-bottom: 15px;
+}
+
+.bg-page-not-found {
+  background-color: #fcb82f;
+}
+
+.image-container {
+  display: grid;
+  height: 100%;
+  min-height: 100vh;
+}
+
+.image-404 {
+  max-width: 100%;
+  max-height: 100vh;
+  margin: auto;
+}
+
+.attribution {
+  position: absolute;
+  bottom: 20px;
+  left: 10px;
+}
+
+.error-message {
+  position: absolute;
+  top: 23%;
+  left: 15%;
+  font-size: 2rem;
+  font-weight: 600;
+  color:firebrick;
+  width: 300px;
 }

@@ -18,6 +18,7 @@ export default function useFetch(url, click) {
       setData(result);
     } catch (error) {
       setError(error.message);
+      console.warn(error);
     } finally {
       setIsLoading(false);
     }
@@ -26,9 +27,7 @@ export default function useFetch(url, click) {
   useEffect(() => {
     setIsLoading(true);
 
-    if (url) {
-      fetchData(url);
-    }
+    fetchData(url);
   }, [click]);
 
   return { data, isLoading, error };
