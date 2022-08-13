@@ -18,6 +18,7 @@ exports[`<PageNotFound /> renders correctly 1`] = `
     >
       Error Message: 
       error message
+       
     </p>
     <a
       className="attribution"

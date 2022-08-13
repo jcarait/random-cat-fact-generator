@@ -1,4 +1,3 @@
-import { Navigate } from "react-router-dom";
 import image404 from "../images/404.jpg";
 
 export default function PageNotFound({ errorMessage }) {
@@ -10,9 +9,12 @@ export default function PageNotFound({ errorMessage }) {
           src={image404}
           alt="cat holding sign with label 404"
         ></img>
-        <p className="error-message" data-testid="error">
-          Error Message: {errorMessage}
-        </p>
+        {errorMessage && (
+          <p className="error-message" data-testid="error">
+            Error Message: {errorMessage}{" "}
+          </p>
+        )}
+
         <a
           className="attribution"
           href="https://www.freepik.com/vectors/unavailable"

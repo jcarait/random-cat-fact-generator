@@ -1,10 +1,9 @@
-import { Navigate } from "react-router-dom";
 import Button from "../components/button/button";
 import Card from "../components/card/card";
 import catImage from "../images/cat.png";
 
 export default function Home({ props, onClick }) {
-  const { data, isLoading, error } = props;
+  const { data, isLoading } = props;
 
   return (
     <div className="App">
