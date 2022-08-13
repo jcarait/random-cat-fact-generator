@@ -1,24 +1,36 @@
+body {
+  background: #E0EAFC;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+}
+
 .App {
   text-align: center;
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color:#282c34;
 }
 
 .title {
-  margin-bottom: 15px;
+  margin-bottom: 8px;
 }
 
 .bg-page-not-found {
   background-color: #fcb82f;
+}
+
+.container {
+  display: flex;
+  align-items: center;
 }
 
 .image-container {
@@ -47,4 +59,23 @@
   font-weight: 600;
   color:firebrick;
   width: 300px;
+}
+
+.cat-image {
+  max-width: 550px;
+  margin-right: 75px;
+  margin-bottom: 80px;
+}
+
+@media screen and (max-width: 700px) {
+  .container {
+    display:block;
+  }
+
+  .cat-image {
+    max-width: 175px;
+    transition: all 0.3s ease;
+    margin-left: 70px;
+    margin-bottom: 10px;
+  }
 }

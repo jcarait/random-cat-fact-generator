@@ -1,7 +1,7 @@
-import { render, screen, renderHook, cleanup } from "@testing-library/react";
+import { render, screen, cleanup } from "@testing-library/react";
 import { act } from "react-dom/test-utils";
 import { unmountComponentAtNode } from "react-dom";
-import useFetch from "../useFetch";
+import useFetch from "../api/useFetch";
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));

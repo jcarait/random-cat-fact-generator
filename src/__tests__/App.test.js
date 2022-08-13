@@ -1,50 +1,29 @@
-import { cleanup, render, screen, waitFor } from "@testing-library/react";
-import { act } from "react-dom/test-utils";
+import React from "react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import App from "../App";
+import renderer from "react-test-renderer";
 
-function sleep(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
+const Button = ({ onClick, children }) => (
+  <button onClick={onClick}>{children}</button>
+);
 
-afterEach(() => {
-  cleanup();
-});
+it("renders correctly", () => {
+  const tree = renderer.create(<App />).toJSON();
 
-it("renders app with div element without crashing", () => {
-  const div = document.createElement("div");
-  render(<App />, div);
+  expect(tree).toMatchSnapshot();
 });
 
 it("should show loading", () => {
   render(<App />);
-  expect(screen.getByTestId("loading")).toHaveTextContent("Loading...");
+  expect(screen.getByText("Loading...")).toBeInTheDocument();
 });
 
-it("should display data", async () => {
-  render(<App />);
+it("should update isClicked state when button is clicked", () => {
+  const setIsClicked = jest.fn();
+  const handleClick = jest.spyOn(React, "useState");
+  handleClick.mockImplementationOnce((isClicked) => [isClicked, setIsClicked]);
+  render(<App onClick={handleClick} />);
 
-  expect(screen.getByTestId("loading")).toHaveTextContent("Loading...");
-  (await waitFor(() => expect(screen.getByTestId("data")))).toBeInTheDocument();
-  (await waitFor(() => expect(screen.queryByTestId("Loading...")))).toBeNull();
-});
-
-it("returns error message on fail", async () => {
-  function fetchMock(url) {
-    return new Promise((resolve) =>
-      setTimeout(() => {
-        resolve({
-          status: 404,
-          ok: false,
-        });
-      }, 300)
-    );
-  }
-
-  jest.spyOn(global, "fetch").mockImplementation(fetchMock);
-
-  render(<App />);
-
-  expect(screen.getByTestId("loading")).toHaveTextContent("Loading...");
-  await act(async () => await sleep(500));
-  expect(screen.getByTestId("error-page")).toBeInTheDocument();
+  fireEvent.click(screen.getByText("refresh"));
+  expect(setIsClicked).toHaveBeenCalled();
 });

@@ -1,6 +1,8 @@
 .button {
   margin-top: 20px;
   padding: 10px 20px;
-  border: 3px solid white;
+  border: 3px solid #282c34;
   text-transform: capitalize;
+  margin-bottom: 20px;
 }
+

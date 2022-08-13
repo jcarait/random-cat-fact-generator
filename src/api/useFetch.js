@@ -18,7 +18,6 @@ export default function useFetch(url, click) {
       setData(result);
     } catch (error) {
       setError(error.message);
-      console.warn(error);
     } finally {
       setIsLoading(false);
     }

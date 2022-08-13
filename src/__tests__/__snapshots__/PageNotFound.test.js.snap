@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PageNotFound /> renders correctly 1`] = `
+<div
+  className="bg-page-not-found"
+>
+  <div
+    className="image-container"
+  >
+    <img
+      alt="cat holding sign with label 404"
+      className="image-404"
+      src="404.jpg"
+    />
+    <p
+      className="error-message"
+      data-testid="error"
+    >
+      Error Message: 
+      error message
+    </p>
+    <a
+      className="attribution"
+      href="https://www.freepik.com/vectors/unavailable"
+    >
+      Unavailable vector created by pikisuperstar - www.freepik.com
+    </a>
+  </div>
+</div>
+`;

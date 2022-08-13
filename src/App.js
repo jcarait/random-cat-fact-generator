@@ -1,13 +1,8 @@
 import { useState } from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Navigate,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 import PageNotFound from "./pages/PageNotFound";
-import Home from "./pages/HomePage";
+import Home from "./pages/Home";
 import useFetch from "./api/useFetch";
 
 function App() {
@@ -17,10 +12,6 @@ function App() {
     isClicked
   );
 
-  const handleClick = () => {
-    setIsClicked(!isClicked);
-  };
-
   return (
     <Router>
       <Routes>
@@ -28,7 +19,10 @@ function App() {
           exact
           path="/"
           element={
-            <Home props={{ data, isLoading, error }} onClick={handleClick} />
+            <Home
+              props={{ data, isLoading, error }}
+              onClick={() => setIsClicked(!isClicked)}
+            />
           }
         ></Route>
         <Route></Route>

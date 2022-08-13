@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="App"
+>
+  <header
+    className="App-header"
+  >
+    <h1
+      className="title"
+    >
+      Random Cat Fact Generator
+    </h1>
+    <p
+      data-testid="loading"
+    >
+      Loading...
+    </p>
+    <div
+      className="container"
+    >
+      <img
+        alt="a cat raising its paw up"
+        className="cat-image"
+        src="cat.png"
+      />
+    </div>
+    <div
+      className="button"
+      onClick={[Function]}
+    >
+      refresh
+    </div>
+  </header>
+</div>
+`;
