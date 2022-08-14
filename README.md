@@ -22,6 +22,7 @@ Clone the repo with
 
 ```
 git clone https://github.com/jcarait/random-cat-fact-generator.git
+```
 
 In the root directory, install dependencies by running
 
@@ -47,4 +48,3 @@ to customise the test
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
-```
