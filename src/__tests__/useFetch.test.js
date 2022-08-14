@@ -24,7 +24,7 @@ afterEach(() => {
   cleanup();
 });
 
-it("should return data and renders data on success", async () => {
+it("should return and render data on success", async () => {
   function fetchMock(url) {
     return new Promise((resolve) =>
       setTimeout(() => {
