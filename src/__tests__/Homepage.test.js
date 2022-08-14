@@ -1,8 +1,9 @@
-import { screen, render } from "@testing-library/react";
+import React from "react";
+import { screen, render, fireEvent } from "@testing-library/react";
 import renderer from "react-test-renderer";
 import Home from "../pages/Home";
 
-describe("<HomePage />", () => {
+describe("<HomePage /> and components rendering correctly", () => {
   it("renders correctly", () => {
     //Props for home component
     const data = {

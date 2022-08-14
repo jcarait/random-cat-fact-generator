@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# Random Cat Fact Generator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple application which displays a random cat fact from [catfact public API](https://catfact.ninja/).
+
+It generates a new cat fact when the button is clicked or the page is refreshed.
 
 ## Available Scripts
 

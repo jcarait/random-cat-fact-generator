@@ -6,9 +6,4 @@ describe("<Count />", () => {
     render(<Count value={1} />);
     expect(screen.getByTestId("count")).toHaveTextContent(1);
   });
-
-  it("should have <div> with className of count", () => {
-    render(<Count value={0} />);
-    expect(screen.getByTestId("count")).toHaveClass("count");
-  });
 });

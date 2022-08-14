@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`Testing for snapshot and changes to state renders correctly 1`] = `
 <div
   className="App"
 >
@@ -26,10 +26,10 @@ exports[`renders correctly 1`] = `
       />
       <div
         className="count"
-        data-testid="count"
       >
         <p
           className="count-text"
+          data-testid="count"
         >
           0
         </p>

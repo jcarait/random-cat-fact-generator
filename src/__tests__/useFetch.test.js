@@ -24,7 +24,7 @@ afterEach(() => {
   cleanup();
 });
 
-it("returns data and renders data on success", async () => {
+it("should return data and renders data on success", async () => {
   function fetchMock(url) {
     return new Promise((resolve) =>
       setTimeout(() => {
@@ -51,9 +51,9 @@ it("returns data and renders data on success", async () => {
   expect(screen.getByTestId("loading")).toHaveTextContent("Loading...");
   await act(async () => await sleep(500));
   expect(screen.getByTestId("data")).toHaveTextContent("data from api");
+  expect(screen.getByTestId("count")).toHaveTextContent("1");
 });
-
-it("returns error on fail", async () => {
+it("should return error on fail", async () => {
   function fetchMock(url) {
     return new Promise((resolve) =>
       setTimeout(() => {
@@ -77,7 +77,7 @@ it("returns error on fail", async () => {
 });
 
 function TestComponent({ url }) {
-  const { data, isLoading, error } = useFetch(url);
+  const { data, isLoading, error, count } = useFetch(url);
 
   if (isLoading) {
     return <p data-testid="loading">Loading...</p>;
@@ -93,6 +93,7 @@ function TestComponent({ url }) {
 
   return (
     <div>
+      <p data-testid="count">{count}</p>
       <p data-testid="data">{JSON.stringify(data?.data)}</p>
     </div>
   );

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<HomePage /> renders correctly 1`] = `
+exports[`<HomePage /> and components rendering correctly renders correctly 1`] = `
 <div
   className="App"
 >
@@ -26,10 +26,10 @@ exports[`<HomePage /> renders correctly 1`] = `
       />
       <div
         className="count"
-        data-testid="count"
       >
         <p
           className="count-text"
+          data-testid="count"
         />
         <p
           className="count-label"

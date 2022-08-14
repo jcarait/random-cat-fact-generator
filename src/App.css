@@ -70,6 +70,7 @@ body {
   max-width: 250px;
   margin-bottom: 50px;
   margin-left: 85px;
+  transition: all 0.2s ease;
 }
 
 .container--cat-with-count {
@@ -81,7 +82,7 @@ body {
 
   .cat-image {
     max-width: 125px;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     margin-left: 20px;
     margin-bottom: 20px;
   }
