@@ -4,5 +4,13 @@
   border: 3px solid #282c34;
   text-transform: capitalize;
   margin-bottom: 20px;
+  width: 80px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
+@media (hover: hover) {
+  .button:hover {
+      background-color:#282c34;
+  }
+}

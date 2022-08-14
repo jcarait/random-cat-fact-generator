@@ -3,6 +3,7 @@ import { act } from "react-dom/test-utils";
 import { unmountComponentAtNode } from "react-dom";
 import useFetch from "../api/useFetch";
 
+// helper function to simulate delay of receiving data from api
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
@@ -22,19 +23,6 @@ afterEach(() => {
   container = null;
   cleanup();
 });
-
-// const mockUseFetchComponent = jest.fn();
-// jest.mock("../useFetch.js", () => (url, click) => {
-//   mockUseFetchComponent(url, click);
-//   return <mockUseFetchComponent />;
-// });
-
-// test("If ParentComponent has passed url prop, ChildComponent is called with url prop", () => {
-//   render(<TestComponent url="https://mockurl.com" />);
-//   expect(mockUseFetchComponent).toHaveBeenCalledWith(
-//     expect.stringContaining("https://mockurl.com")
-//   );
-// });
 
 it("returns data and renders data on success", async () => {
   function fetchMock(url) {

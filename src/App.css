@@ -1,17 +1,14 @@
 body {
-  background: #E0EAFC;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-
+  background-color: #D9AFD9;
+  background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
 }
 
 .App {
   text-align: center;
+  min-height: 100vh;
 }
 
 .App-header {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,7 +27,9 @@ background: linear-gradient(to right, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, F
 
 .container {
   display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .image-container {
@@ -62,20 +61,17 @@ background: linear-gradient(to right, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, F
 }
 
 .cat-image {
-  max-width: 550px;
-  margin-right: 75px;
-  margin-bottom: 80px;
+  max-width: 250px;
+  margin-bottom: 50px;
+  margin-left: 85px;
 }
 
 @media screen and (max-width: 700px) {
-  .container {
-    display:block;
-  }
 
   .cat-image {
-    max-width: 175px;
+    max-width: 125px;
     transition: all 0.3s ease;
-    margin-left: 70px;
-    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-bottom: 20px;
   }
 }

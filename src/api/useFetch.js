@@ -4,6 +4,7 @@ export default function useFetch(url, click) {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
+  const [count, setCount] = useState(0);
 
   const fetchData = async () => {
     try {
@@ -16,8 +17,10 @@ export default function useFetch(url, click) {
       const result = await response.json();
 
       setData(result);
+      setError("");
     } catch (error) {
       setError(error.message);
+      setData(null);
     } finally {
       setIsLoading(false);
     }
@@ -27,6 +30,7 @@ export default function useFetch(url, click) {
     setIsLoading(true);
 
     fetchData(url);
+    console.log(`useEffect called`);
   }, [click]);
 
   return { data, isLoading, error };

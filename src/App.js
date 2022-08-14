@@ -7,7 +7,7 @@ import useFetch from "./api/useFetch";
 
 function App() {
   const [isClicked, setIsClicked] = useState(true);
-  const { data, isLoading, error } = useFetch(
+  const { isLoading, data, error } = useFetch(
     "https://catfact.ninja/fact",
     isClicked
   );

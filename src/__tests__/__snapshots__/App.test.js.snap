@@ -12,26 +12,79 @@ exports[`renders correctly 1`] = `
     >
       Random Cat Fact Generator
     </h1>
+  </header>
+  <div
+    className="container"
+  >
+    <img
+      alt="a cat raising its paw up"
+      className="cat-image"
+      src="cat.png"
+    />
     <p
       data-testid="loading"
     >
-      Loading...
+      <span
+        style={
+          Object {
+            "display": "inherit",
+          }
+        }
+      >
+        <span
+          style={
+            Object {
+              "animation": "react-spinners-BeatLoader-beat 0.7s 0s infinite linear",
+              "animationFillMode": "both",
+              "backgroundColor": "#000000",
+              "borderRadius": "100%",
+              "display": "inline-block",
+              "height": "20px",
+              "margin": "2px",
+              "width": "20px",
+            }
+          }
+        />
+        <span
+          style={
+            Object {
+              "animation": "react-spinners-BeatLoader-beat 0.7s 0.35s infinite linear",
+              "animationFillMode": "both",
+              "backgroundColor": "#000000",
+              "borderRadius": "100%",
+              "display": "inline-block",
+              "height": "20px",
+              "margin": "2px",
+              "width": "20px",
+            }
+          }
+        />
+        <span
+          style={
+            Object {
+              "animation": "react-spinners-BeatLoader-beat 0.7s 0s infinite linear",
+              "animationFillMode": "both",
+              "backgroundColor": "#000000",
+              "borderRadius": "100%",
+              "display": "inline-block",
+              "height": "20px",
+              "margin": "2px",
+              "width": "20px",
+            }
+          }
+        />
+      </span>
     </p>
-    <div
-      className="container"
-    >
-      <img
-        alt="a cat raising its paw up"
-        className="cat-image"
-        src="cat.png"
-      />
-    </div>
+  </div>
+  <div
+    className="container"
+  >
     <div
       className="button"
       onClick={[Function]}
     >
       refresh
     </div>
-  </header>
+  </div>
 </div>
 `;

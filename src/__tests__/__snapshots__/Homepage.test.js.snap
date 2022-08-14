@@ -12,28 +12,32 @@ exports[`<HomePage /> renders correctly 1`] = `
     >
       Random Cat Fact Generator
     </h1>
+  </header>
+  <div
+    className="container"
+  >
+    <img
+      alt="a cat raising its paw up"
+      className="cat-image"
+      src="cat.png"
+    />
     <div
-      className="container"
+      className="card"
+      data-testid="card"
     >
-      <img
-        alt="a cat raising its paw up"
-        className="cat-image"
-        src="cat.png"
-      />
-      <div
-        className="card"
-        data-testid="card"
-      >
-        <p>
-          Random cat fact
-        </p>
-      </div>
+      <p>
+        Random cat fact
+      </p>
     </div>
+  </div>
+  <div
+    className="container"
+  >
     <div
       className="button"
     >
       refresh
     </div>
-  </header>
+  </div>
 </div>
 `;
