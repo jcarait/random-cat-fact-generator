@@ -16,11 +16,28 @@ exports[`<HomePage /> renders correctly 1`] = `
   <div
     className="container"
   >
-    <img
-      alt="a cat raising its paw up"
-      className="cat-image"
-      src="cat.png"
-    />
+    <div
+      className="container--cat-with-count"
+    >
+      <img
+        alt="a cat raising its paw up"
+        className="cat-image"
+        src="cat.png"
+      />
+      <div
+        className="count"
+        data-testid="count"
+      >
+        <p
+          className="count-text"
+        />
+        <p
+          className="count-label"
+        >
+          Number of cat facts refreshed in this session
+        </p>
+      </div>
+    </div>
     <div
       className="card"
       data-testid="card"
@@ -36,7 +53,7 @@ exports[`<HomePage /> renders correctly 1`] = `
     <div
       className="button"
     >
-      refresh
+      New cat fact
     </div>
   </div>
 </div>

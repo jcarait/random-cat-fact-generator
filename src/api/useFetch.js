@@ -17,6 +17,7 @@ export default function useFetch(url, click) {
       const result = await response.json();
 
       setData(result);
+      setCount((prev) => prev + 1);
       setError("");
     } catch (error) {
       setError(error.message);
@@ -33,5 +34,5 @@ export default function useFetch(url, click) {
     console.log(`useEffect called`);
   }, [click]);
 
-  return { data, isLoading, error };
+  return { data, count, isLoading, error };
 }

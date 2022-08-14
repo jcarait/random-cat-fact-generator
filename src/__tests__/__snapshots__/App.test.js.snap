@@ -16,11 +16,30 @@ exports[`renders correctly 1`] = `
   <div
     className="container"
   >
-    <img
-      alt="a cat raising its paw up"
-      className="cat-image"
-      src="cat.png"
-    />
+    <div
+      className="container--cat-with-count"
+    >
+      <img
+        alt="a cat raising its paw up"
+        className="cat-image"
+        src="cat.png"
+      />
+      <div
+        className="count"
+        data-testid="count"
+      >
+        <p
+          className="count-text"
+        >
+          0
+        </p>
+        <p
+          className="count-label"
+        >
+          Number of cat facts refreshed in this session
+        </p>
+      </div>
+    </div>
     <p
       data-testid="loading"
     >
@@ -83,7 +102,7 @@ exports[`renders correctly 1`] = `
       className="button"
       onClick={[Function]}
     >
-      refresh
+      New cat fact
     </div>
   </div>
 </div>

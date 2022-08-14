@@ -7,7 +7,7 @@ import useFetch from "./api/useFetch";
 
 function App() {
   const [isClicked, setIsClicked] = useState(true);
-  const { isLoading, data, error } = useFetch(
+  const { isLoading, data, count, error } = useFetch(
     "https://catfact.ninja/fact",
     isClicked
   );
@@ -20,7 +20,7 @@ function App() {
           path="/"
           element={
             <Home
-              props={{ data, isLoading, error }}
+              props={{ data, isLoading, error, count }}
               onClick={() => setIsClicked(!isClicked)}
             />
           }

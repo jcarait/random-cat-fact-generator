@@ -1,0 +1,13 @@
+.count {
+  width: 200px;
+}
+
+.count > .count-label {
+  font-size: 1em;
+}
+
+.count > .count-text {
+  font-size: 1.7em;
+  font-weight: 700;
+  margin-bottom: 20px;
+}

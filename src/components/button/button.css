@@ -4,9 +4,11 @@
   border: 3px solid #282c34;
   text-transform: capitalize;
   margin-bottom: 20px;
-  width: 80px;
+  width: 120px;
   border-radius: 5px;
   cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 @media (hover: hover) {

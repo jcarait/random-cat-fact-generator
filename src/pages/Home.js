@@ -1,10 +1,12 @@
-import Button from "../components/button/Button";
-import Card from "../components/card/Card";
-import catImage from "../images/cat.png";
 import BeatLoader from "react-spinners/BeatLoader";
 
+import Button from "../components/button/Button";
+import Card from "../components/card/Card";
+import Count from "../components/count/Count";
+import catImage from "../images/cat.png";
+
 export default function Home({ props, onClick }) {
-  const { isLoading, data, error } = props;
+  const { isLoading, data, count, error } = props;
 
   return (
     <div className="App">
@@ -12,11 +14,14 @@ export default function Home({ props, onClick }) {
         <h1 className="title">Random Cat Fact Generator</h1>
       </header>
       <div className="container">
-        <img
-          className="cat-image"
-          src={catImage}
-          alt="a cat raising its paw up"
-        ></img>
+        <div className="container--cat-with-count">
+          <img
+            className="cat-image"
+            src={catImage}
+            alt="a cat raising its paw up"
+          ></img>
+          <Count value={count} />
+        </div>
         {isLoading && (
           <p data-testid="loading">
             <BeatLoader loading={isLoading} size={20} />
@@ -26,7 +31,7 @@ export default function Home({ props, onClick }) {
         {error && !data && <Card data={`Something went wrong... ${error}`} />}
       </div>
       <div className="container">
-        <Button label="refresh" onClick={onClick} />
+        <Button label="New cat fact" onClick={onClick} />
       </div>
     </div>
   );
